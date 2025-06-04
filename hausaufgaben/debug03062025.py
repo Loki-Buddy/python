@@ -41,8 +41,8 @@ print(rechne(5, 0))
 #Debug 5
 def teile(x, y):
     if y == 0:
-        #raise ZeroDivisionError("Eine Division durch 0 ist nicht möglich.")
-        return x / y
+        raise ZeroDivisionError("Eine Division durch 0 ist nicht möglich.")
+    return x / y
 try:    
     teile(4, 0)
 except ZeroDivisionError as e:
