@@ -1,0 +1,36 @@
+Ich habe Heute 3 Prüfungen, mit der App von Helen simuliert. Alle drei mit über 90% bestanden.
+
+Während dieser Prüfungen sind mir zwei Sachen aufgefallen die ich mir dann angeschaut habe.
+Was ist ein Closure?:
+
+    def counter():
+        count = 0
+        def increment():
+            nonlocal count
+            count += 1
+            return count
+        return increment    #Hier dachte ich an einen falschen Funktionsaufruf.
+                            #Aber hier wird die Funktion selbst zurück gegeben.
+                            #Mit diesem Muster wird eine Funktion ausgeführt die sich ihren
+                            #eigenen Zusand merken kann.
+    my_counter = counter()
+    print(my_counter())
+    print(my_counter())
+
+Wie funktioniert zip()?
+Mit zip() lassen sich mehrere Iterables mit dem gleichen Index zu Paaren in einem Tupel zusammenfügen.
+Beispiel:
+    namen = ["Anna", "Ben", "Clara"]            #Eine Liste mit namen
+    alter = [23, 31, 19]                        #Eine Liste mit zahlen
+
+    kombiniert = list(zip(namen, alter))        #Eine neue Liste 
+    print(kombiniert)
+
+Ausgabe:
+    [('Anna', 23, 'Berlin'), ('Ben', 31, 'Hamburg'), ('Clara', 19, 'München')]
+
+Besonderheit:
+    paare = [(1, 'a'), (2, 'b'), (3, 'c')]      #Eine Liste mit mehreren Tupeln
+    zahlen, buchstaben = zip(*paare)            #Mit * sind alle Tupel in paare gemeint
+    print(list(zahlen))      # [1, 2, 3]
+    print(list(buchstaben))  # ['a', 'b', 'c']
